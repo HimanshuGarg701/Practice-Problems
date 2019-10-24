@@ -16,6 +16,9 @@ public class Driver {
         obj.addNode(5);
         obj.addNode(7);
         obj.addNode(9);
+        obj.addNode(11);
+        
+        obj.delete(8);
         
         obj.printTree();
     }
