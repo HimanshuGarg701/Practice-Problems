@@ -47,6 +47,8 @@ public class Tree {
         }
     }
     
+    
+    // Inorder traversal
     private void printHelper(NodeBinary node){
         if(node!=null){
             printHelper(node.getleftChild());
@@ -54,4 +56,69 @@ public class Tree {
             printHelper(node.getRightChild());
         }
     } 
+    
+    public boolean search(int data){
+        if(root==null){
+            return false;
+        }
+        else{
+            return searchHelper(root, data);
+        }
+    }
+    
+    private boolean searchHelper(NodeBinary node, int data){
+        if(node==null){
+            return false;
+        }
+        else if(data == node.getData()){
+            return true;
+        }
+        else{
+            return data < node.getData()? searchHelper(node.getleftChild(), data): searchHelper(node.getRightChild(),data);
+        }
+    }
+    
+    public void delete(int data){
+        root = deleteHelper(root, data);
+    }
+    
+    private NodeBinary deleteHelper(NodeBinary node, int data){
+        if(node==null){
+            return node;
+        }
+        else if(data<node.getData()){
+            node.setLeftChild( deleteHelper(node.getleftChild(), data)); 
+        }
+        else if(data>node.getData()){
+            node.setRightChild( deleteHelper(node.getRightChild(), data)); 
+        }
+        else{
+            // If leaf
+            if(node.getleftChild()==null && node.getRightChild()==null){
+                return null;
+            }
+            
+            // If one child only
+            if(node.getleftChild()==null){
+                return node.getRightChild();
+            }
+            
+            else if(node.getRightChild()==null){
+                return node.getleftChild();
+            }
+            
+            // If two children
+            else{        
+                int newVal = findMin(node.getRightChild());
+                node.setData(newVal);
+                node.setRightChild(deleteHelper(node.getRightChild(), newVal));
+            }
+            
+        }
+        return node;
+    }
+    
+    private int findMin(NodeBinary node){
+        return node.getleftChild()==null ? node.getData() : findMin(node.getleftChild());
+    }
 }
