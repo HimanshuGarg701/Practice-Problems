@@ -121,4 +121,31 @@ public class Tree {
     private int findMin(NodeBinary node){
         return node.getleftChild()==null ? node.getData() : findMin(node.getleftChild());
     }
+    
+    public boolean isEqual(Tree a, Tree b){
+        return equalHelper(a.root, b.root);
+    }
+    
+    private boolean equalHelper(NodeBinary a, NodeBinary b){
+        if(a == null && b==null){
+            return true;
+        }
+        return (a!=null && b!=null) && (a.getData()==b.getData()) && (equalHelper(a.getRightChild(), b.getRightChild()))
+                && equalHelper(a.getleftChild(), b.getleftChild());
+    }
+    
+    public void deleteTree(Tree obj){
+        deleteHelper(obj.root);
+    }
+    
+    private void deleteHelper(NodeBinary node){
+        if(node == null){
+            
+        }
+        
+        else{
+            deleteHelper(node.getleftChild());
+             deleteHelper(node.getRightChild());
+        }
+    }
 }

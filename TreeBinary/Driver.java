@@ -8,6 +8,7 @@ package leetcode.practice.TreeBinary;
 public class Driver {
     public static void main(String[] args){
         Tree obj = new Tree();
+        Tree obj1 = new Tree();
         
         obj.addNode(6);
         obj.addNode(4);
@@ -18,8 +19,18 @@ public class Driver {
         obj.addNode(9);
         obj.addNode(11);
         
+        obj1.addNode(6);
+        obj1.addNode(4);
+        obj1.addNode(8);
+        obj1.addNode(3);
+        obj1.addNode(5);
+        obj1.addNode(7);
+        obj1.addNode(9);
+        obj1.addNode(11);
+        
         obj.delete(8);
         
+        System.out.println(obj1.isEqual(obj, obj1));
         obj.printTree();
     }
 }
