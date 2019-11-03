@@ -1,6 +1,6 @@
 
 package leetcode.practice.TreeBinary;
-
+import java.util.*;
 /**
  *
  * @author Himanshu Garg
@@ -18,6 +18,17 @@ public class Tree {
         }else{
             addHelper(root, data);
         }   
+    }
+    public void a(){
+        HashMap<Integer, Integer> x = new HashMap<>();
+        x.put(1,1);
+        b(x);
+        x.keySet().forEach((i) -> {
+            System.out.println(x.get(i));
+        });
+    }
+    public void b(HashMap<Integer, Integer> x){
+        x.put(2, 2);
     }
     
     private NodeBinary addHelper(NodeBinary node, int data){
@@ -134,18 +145,43 @@ public class Tree {
                 && equalHelper(a.getleftChild(), b.getleftChild());
     }
     
-    public void deleteTree(Tree obj){
-        deleteHelper(obj.root);
+//    public void deleteTree(Tree obj){
+//        deleteHelper(obj.root);
+//    }
+//    
+//    private void deleteHelper(NodeBinary node){
+//        if(node == null){
+//            
+//        }
+//        
+//        else{
+//            deleteHelper(node.getleftChild());
+//             deleteHelper(node.getRightChild());
+//        }
+//    }
+    
+    public void levelOrder(){
+        HashMap<Integer, ArrayList<Integer>> m = new HashMap<>();
+        
+        levelHelper(root, 1, m);
+        
+        m.keySet().forEach((i) -> {
+            System.out.println(m.get(i));
+        });
     }
     
-    private void deleteHelper(NodeBinary node){
-        if(node == null){
-            
+    public void levelHelper(NodeBinary node,int level, HashMap<Integer, ArrayList<Integer>> m){
+        if(node==null){
         }
-        
         else{
-            deleteHelper(node.getleftChild());
-             deleteHelper(node.getRightChild());
+            if(!m.containsKey(level)){
+                m.put(level, new ArrayList<>());
+            }
+            
+            m.get(level).add(node.getData());
+            
+            levelHelper(node.getleftChild(), level+1, m);
+            levelHelper(node.getRightChild(), level+1, m);
         }
     }
 }

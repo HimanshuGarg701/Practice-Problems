@@ -28,9 +28,11 @@ public class Driver {
         obj1.addNode(9);
         obj1.addNode(11);
         
-        obj.delete(8);
-        
-        System.out.println(obj1.isEqual(obj, obj1));
-        obj.printTree();
+//        obj.delete(8);
+//        obj.levelOrder();
+//        System.out.println(obj1.isEqual(obj, obj1));
+//        obj.printTree();
+
+        obj.a();
     }
 }
