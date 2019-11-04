@@ -17,7 +17,7 @@ public class Driver {
         obj.addNode(5);
         obj.addNode(7);
         obj.addNode(9);
-        obj.addNode(11);
+        //obj.addNode(11);
         
         obj1.addNode(6);
         obj1.addNode(4);
@@ -27,12 +27,15 @@ public class Driver {
         obj1.addNode(7);
         obj1.addNode(9);
         obj1.addNode(11);
-        
-//        obj.delete(8);
+        obj.printTree();
+        System.out.println("____________");
+       //obj.delete(8);
 //        obj.levelOrder();
 //        System.out.println(obj1.isEqual(obj, obj1));
 //        obj.printTree();
+        obj.sumTree();
+        obj.printTree();
 
-        obj.a();
+    
     }
 }

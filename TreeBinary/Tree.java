@@ -19,17 +19,6 @@ public class Tree {
             addHelper(root, data);
         }   
     }
-    public void a(){
-        HashMap<Integer, Integer> x = new HashMap<>();
-        x.put(1,1);
-        b(x);
-        x.keySet().forEach((i) -> {
-            System.out.println(x.get(i));
-        });
-    }
-    public void b(HashMap<Integer, Integer> x){
-        x.put(2, 2);
-    }
     
     private NodeBinary addHelper(NodeBinary node, int data){
         
@@ -182,6 +171,25 @@ public class Tree {
             
             levelHelper(node.getleftChild(), level+1, m);
             levelHelper(node.getRightChild(), level+1, m);
+        }
+    }
+    
+    public void sumTree(){
+        helperSumTree(root);
+    }
+    
+    public int helperSumTree(NodeBinary node){
+        if(node==null){
+            return 0;
+        }
+        else{
+            int left = helperSumTree(node.getleftChild());
+            int right = helperSumTree(node.getRightChild());
+            
+            int current = node.getData();
+            
+            node.setData(left+right);
+            return node.getData() + current;
         }
     }
 }
