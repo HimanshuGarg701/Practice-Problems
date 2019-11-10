@@ -132,4 +132,26 @@ public class MakeList {
         }
        return null;     
     }
+    
+    public int findNlast(int x){
+        NodeList fast = head;
+        NodeList slow = head;
+        int fastPos = 1;
+        int slowPos = 1;
+        while(fast!=null){
+            if(fastPos-slowPos<x){
+                fast = fast.next;
+                fastPos++;
+            }else{
+                fastPos++;
+                fast = fast.next;
+                slowPos++;
+                slow = slow.next;
+            }
+        }
+        if(fastPos-slowPos==x){
+            return slow.data;
+        }
+        return -1;
+    }
 }

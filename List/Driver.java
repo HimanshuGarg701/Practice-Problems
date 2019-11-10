@@ -29,5 +29,7 @@ public class Driver {
         System.out.println("__________REMOVING_DUPLICATE______________");
         obj.removeDuplicate();
         obj.print();
+        System.out.println("---------------Element from back---------------");
+        System.out.println(obj.findNlast(3));
     }
 }
