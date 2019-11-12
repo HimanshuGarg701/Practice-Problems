@@ -35,6 +35,8 @@ public class Driver {
 //        obj.printTree();
         obj.sumTree();
         obj.printTree();
+        
+        obj.checkSameTree(obj1, obj);
 
     
     }

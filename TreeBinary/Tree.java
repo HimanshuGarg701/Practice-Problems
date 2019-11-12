@@ -134,20 +134,6 @@ public class Tree {
                 && equalHelper(a.getleftChild(), b.getleftChild());
     }
     
-//    public void deleteTree(Tree obj){
-//        deleteHelper(obj.root);
-//    }
-//    
-//    private void deleteHelper(NodeBinary node){
-//        if(node == null){
-//            
-//        }
-//        
-//        else{
-//            deleteHelper(node.getleftChild());
-//             deleteHelper(node.getRightChild());
-//        }
-//    }
     
     public void levelOrder(){
         HashMap<Integer, ArrayList<Integer>> m = new HashMap<>();
@@ -191,5 +177,21 @@ public class Tree {
             node.setData(left+right);
             return node.getData() + current;
         }
+    }
+    
+    public void checkSameTree(Tree t1, Tree t2){
+        System.out.println("The fact about same tree is : " + checkSameTreeHelper(t1.root, t2.root));
+    }
+    
+    public boolean checkSameTreeHelper(NodeBinary r1, NodeBinary r2){
+        if(r1==null && r2==null){
+            return true;
+        }
+        if(r1==null || r2 == null){
+            return false;
+        }
+        return (r1.getData()==r2.getData()) &&
+                checkSameTreeHelper(r1.getleftChild(), r2.getleftChild()) &&
+                checkSameTreeHelper(r1.getRightChild(), r2.getRightChild());
     }
 }
