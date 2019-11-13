@@ -10,13 +10,13 @@ public class Driver {
         Tree obj = new Tree();
         Tree obj1 = new Tree();
         
-        obj.addNode(6);
-        obj.addNode(4);
-        obj.addNode(8);
-        obj.addNode(3);
+        obj.addNode(10);
         obj.addNode(5);
-        obj.addNode(7);
-        obj.addNode(9);
+        obj.addNode(18);
+        obj.addNode(4);
+        obj.addNode(6);
+        obj.addNode(15);
+        obj.addNode(20);
         //obj.addNode(11);
         
         obj1.addNode(6);
@@ -27,17 +27,19 @@ public class Driver {
         obj1.addNode(7);
         obj1.addNode(9);
         obj1.addNode(11);
-        obj.printTree();
+        //obj.printTree();
         System.out.println("____________");
        //obj.delete(8);
 //        obj.levelOrder();
 //        System.out.println(obj1.isEqual(obj, obj1));
 //        obj.printTree();
-        obj.sumTree();
-        obj.printTree();
-        
-        obj.checkSameTree(obj1, obj);
-
-    
+//        obj.sumTree();
+//        obj.printTree();
+//        
+//        obj.checkSameTree(obj1, obj);
+        //System.out.println(obj.rootToLeafSum(19));
+       // System.out.println("IS BST? : -->" + obj.isBST());
+       
+       obj1.levelOrderWithQueue(obj1.root);
     }
 }

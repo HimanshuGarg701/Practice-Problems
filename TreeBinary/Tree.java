@@ -10,7 +10,7 @@ public class Tree {
     public Tree(){
         //empty constructor
     }
-    private NodeBinary root = null;
+    public NodeBinary root = null;
     
     public void addNode(int data){
         if(root==null){
@@ -147,6 +147,7 @@ public class Tree {
     
     public void levelHelper(NodeBinary node,int level, HashMap<Integer, ArrayList<Integer>> m){
         if(node==null){
+            
         }
         else{
             if(!m.containsKey(level)){
@@ -193,5 +194,77 @@ public class Tree {
         return (r1.getData()==r2.getData()) &&
                 checkSameTreeHelper(r1.getleftChild(), r2.getleftChild()) &&
                 checkSameTreeHelper(r1.getRightChild(), r2.getRightChild());
+    }
+    ArrayList<Integer> answer = new ArrayList<>();
+    public boolean rootToLeafSum(int sum){
+        
+        boolean present = rootToLeafHelper(root, sum);
+        for(int x : answer){
+            System.out.println(x);
+        }
+        return present;
+    }
+    
+    private boolean rootToLeafHelper(NodeBinary node, int sum){
+        if(node == null){
+            
+            return false;
+        }
+        
+        if(node.getleftChild()==null  && node.getRightChild()==null){
+            if(sum==node.getData()){
+                answer.add(sum);
+                return true;
+            }else{
+                return false;
+            }
+        }
+        if(rootToLeafHelper(node.getleftChild(), sum-node.getData())){
+            
+            answer.add(node.getData());
+            return true;
+        }
+        if(rootToLeafHelper(node.getRightChild(), sum-node.getData())){
+            
+            answer.add(node.getData());
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isBST(){
+        return isBSThelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    
+    private boolean isBSThelper(NodeBinary node, int min, int max){
+        if(node==null){
+            return true;
+        }
+        
+        if(node.getData() >max && node.getData()<min){
+            return false;
+        }
+        
+        return (isBSThelper(node.getleftChild(), min, node.getData()) &&
+                (isBSThelper(node.getRightChild(), node.getData(), max)));
+    }
+    
+    public void levelOrderWithQueue(NodeBinary node){
+        if(node==null){
+            return;
+        }
+        Queue<NodeBinary> x = new LinkedList<>();
+        x.add(node);
+        while(!x.isEmpty()){
+            NodeBinary n = x.poll();
+            System.out.println(n.getData());
+            if(n.hasLeftChild()){
+                x.add(n.getleftChild());
+            }
+            if(n.hasRightChild()){
+                x.add(n.getRightChild());
+            }
+        }
+        
     }
 }
