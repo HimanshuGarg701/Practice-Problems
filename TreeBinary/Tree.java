@@ -265,6 +265,30 @@ public class Tree {
                 x.add(n.getRightChild());
             }
         }
+    }
+    
+    public void iterativePostOrder(NodeBinary node){
         
+        if(node==null){
+            return;
+        }
+        Stack<NodeBinary> s1 = new Stack<>();
+        Stack<NodeBinary> s2 = new Stack<>();
+        
+        s1.push(node);
+        while(!s1.isEmpty()){
+            NodeBinary removed = s1.pop();
+            s2.push(removed);
+            if(removed.hasLeftChild()){
+                s1.push(removed.getleftChild());
+            }
+            if(removed.hasRightChild()){
+                s1.push(removed.getRightChild());
+            }
+        }
+        while(!s2.isEmpty()){
+            NodeBinary removed = s2.pop();
+            System.out.println(removed.getData());
+        }
     }
 }

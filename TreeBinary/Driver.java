@@ -26,9 +26,9 @@ public class Driver {
         obj1.addNode(5);
         obj1.addNode(7);
         obj1.addNode(9);
-        obj1.addNode(11);
+        //obj1.addNode(11);
         //obj.printTree();
-        System.out.println("____________");
+        System.out.println("-------------------------------");
        //obj.delete(8);
 //        obj.levelOrder();
 //        System.out.println(obj1.isEqual(obj, obj1));
@@ -41,5 +41,8 @@ public class Driver {
        // System.out.println("IS BST? : -->" + obj.isBST());
        
        obj1.levelOrderWithQueue(obj1.root);
+       
+       System.out.println("-------------------------------");
+       obj1.iterativePostOrder(obj1.root);
     }
 }
