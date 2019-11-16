@@ -291,4 +291,54 @@ public class Tree {
             System.out.println(removed.getData());
         }
     }
+    
+    public void preOrderIterative(NodeBinary node){
+        if(node==null){
+            return;
+        }
+        Stack<NodeBinary> s1 = new Stack<>();
+        
+        s1.push(node);
+        while(!s1.isEmpty()){
+            NodeBinary removed = s1.pop();
+            System.out.println(removed.getData());
+            if(removed.hasRightChild()){
+                s1.push(removed.getRightChild());
+            }
+            if(removed.hasLeftChild()){
+                s1.push(removed.getleftChild());
+            }
+        }
+    }
+    
+    public void inorderIterative(NodeBinary node){
+        if(node==null){
+            return;
+        }
+        Stack<NodeBinary> s = new Stack<>();
+        while(true){
+            if(node!=null){
+                s.push(node);
+                node = node.getleftChild();
+            }
+            else{
+                if(s.isEmpty()){break;}
+                node = s.pop();
+                System.out.println(node.getData());
+                node = node.getRightChild();
+            }
+        }
+    }
+    
+    public NodeBinary lca(NodeBinary node, int one, int two){
+        if(node.getData() <Math.min(one, two)){
+            return lca(node.getRightChild(), one, two);
+        }
+        else if(node.getData() > Math.max(one, two)){
+            return lca(node.getleftChild(), one, two);
+        }
+        else{
+            return node;
+        }
+    }
 }

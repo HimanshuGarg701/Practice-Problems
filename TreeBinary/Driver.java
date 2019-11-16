@@ -44,5 +44,14 @@ public class Driver {
        
        System.out.println("-------------------------------");
        obj1.iterativePostOrder(obj1.root);
+       System.out.println("-------------------------------");
+       obj1.preOrderIterative(obj1.root);
+       
+       System.out.println("-------------------------------");
+       obj1.inorderIterative(obj1.root);
+       
+       System.out.println("-------------------------------");
+       NodeBinary node = obj1.lca(obj1.root, 5, 9);
+       System.out.println(node.getData());
     }
 }
