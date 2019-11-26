@@ -1,6 +1,8 @@
 
 package leetcode.practice.Matrix;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Himanshu Garg
@@ -14,7 +16,13 @@ public class DiagnoalTraversal {
                         {4,5,6,7,8},
                         {5,6,7,8,9}
                       };
+        System.out.println("Original Matrix is : ");
+        for(int[] x : matrix){
+            System.out.println(Arrays.toString(x));
+        }
+        System.out.println();
         
+        System.out.println("Printing the matrix diagonally");
         printDiagonally(matrix);
     }
     
@@ -30,6 +38,7 @@ public class DiagnoalTraversal {
             System.out.println();
         }
         
+        // Printing the lower triangle
         for(int i= 1; i<matrix[0].length; i++){
             for(int j=i, k=rows-1; j<cols && k>0 ; j++, k--){
                 System.out.print(matrix[j][k] + "  ");
