@@ -37,4 +37,32 @@ public class Tree {
             printHelper(node.right);
         }
     }
+
+    public void iterativeAdd(int data){
+        iterativeAddHelper(root, data);
+    }
+
+    private void iterativeAddHelper(Node node, int data){
+        Node parent = null;
+        Node current = node;
+        Node newNode = new Node(data);
+        if(current==null){
+            root = newNode;
+            return;
+        }
+        while(current!=null){
+            parent = current;
+            if(data < current.data){
+                current = current.left;
+            }else if(data > current.data){
+                current = current.right;
+            }
+        }
+
+        if(data < parent.data){
+            parent.left = newNode;
+        }else{
+            parent.right = newNode;
+        }
+    }
 }
