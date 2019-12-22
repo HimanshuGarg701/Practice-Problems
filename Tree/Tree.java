@@ -96,4 +96,23 @@ public class Tree {
             return left+right+1;
         }
     }
+
+    public void height(){
+        if(root==null){
+            System.out.print("Height of Tree: 0");
+        }
+        else{
+            System.out.println("Height of Tree is: " +heightHelper(root));
+        }
+    }
+
+    private int heightHelper(Node node){
+        if(node==null){
+            return 0;
+        }else{
+            int left = heightHelper(node.left);
+            int right = heightHelper(node.right);
+            return 1 + Math.max(right, left);
+        }
+    }
 }
