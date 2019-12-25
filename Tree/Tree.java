@@ -163,6 +163,8 @@ public class Tree {
     }
 
     private boolean validBinaryTreeHelper(Node node, int max, int min){
+
+        
         if(node==null){
             return true;
         }
