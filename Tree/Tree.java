@@ -2,7 +2,9 @@ package Tree;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Tree {
 
@@ -164,7 +166,7 @@ public class Tree {
 
     private boolean validBinaryTreeHelper(Node node, int max, int min){
 
-        
+
         if(node==null){
             return true;
         }
@@ -175,5 +177,21 @@ public class Tree {
         return validBinaryTreeHelper(node.left, node.data, min) &&
                 validBinaryTreeHelper(node.right, max, node.data);
 
+    }
+
+    public void levelOrder(){
+        Queue<Node> queue = new LinkedList<>();
+        if(root!=null){
+            queue.add(root);
+        }
+
+        while(!queue.isEmpty()){
+            Node removed = queue.poll();
+            System.out.print(removed.data + "  ");
+            if(removed.left!=null)
+                queue.add(removed.left);
+            if(removed.right!=null)
+                queue.add(removed.right);
+        }
     }
 }

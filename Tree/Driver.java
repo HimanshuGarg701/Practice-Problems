@@ -26,5 +26,7 @@ public class Driver {
         x.rootToLeafSum(45);
 
         x.validBinaryTree();
+
+        x.levelOrder();
     }
 }
