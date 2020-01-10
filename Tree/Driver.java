@@ -24,6 +24,7 @@ public class Driver {
         System.out.println("-------------------Height---------------------------");
         x.height();
 
+        System.out.println("-------------------Check if root to leaf sum exists---------------------------");
         x.rootToLeafSum(20);
         x.rootToLeafSum(35);
         x.rootToLeafSum(45);
