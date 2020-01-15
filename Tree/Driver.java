@@ -29,8 +29,10 @@ public class Driver {
         x.rootToLeafSum(35);
         x.rootToLeafSum(45);
 
+        System.out.println("-------------------Check valid BST---------------------------");
         x.validBinaryTree();
 
+        System.out.println("-------------------Level order traversal---------------------------");
         x.levelOrder();
     }
 }
