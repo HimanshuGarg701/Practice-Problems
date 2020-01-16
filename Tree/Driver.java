@@ -20,5 +20,9 @@ public class Driver {
         x.size();
 
         x.height();
+
+        x.rootToLeafSum(20);
+        x.rootToLeafSum(35);
+        x.rootToLeafSum(45);
     }
 }

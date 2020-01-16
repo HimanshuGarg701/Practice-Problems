@@ -1,5 +1,8 @@
 package Tree;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Tree {
 
     public Node root = null;
@@ -114,5 +117,39 @@ public class Tree {
             int right = heightHelper(node.right);
             return 1 + Math.max(right, left);
         }
+    }
+
+    public void rootToLeafSum(int sum){
+        if(root==null){
+            System.out.println("Sum not present");
+        }else{
+            ArrayList<Integer> result = new ArrayList<>();
+            System.out.println("The Sum : " + sum + " present: " + rootToLeafSumHelper(root, sum, result));
+        }
+    }
+
+    private Boolean rootToLeafSumHelper(Node node, int sum, ArrayList<Integer> result){
+        if(node==null){
+            return false;
+        }
+        else if(node.left==null && node.right==null){
+            if(node.data==sum){
+                result.add(node.data);
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        if(rootToLeafSumHelper(node.left, sum-node.data, result)){
+            result.add(node.data);
+            return true;
+        }
+        if(rootToLeafSumHelper(node.right, sum-node.data, result)){
+            result.add(node.data);
+            return true;
+        }
+
+        return false;
     }
 }
