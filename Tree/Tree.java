@@ -2,6 +2,7 @@ package Tree;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tree {
 
@@ -123,12 +124,16 @@ public class Tree {
         if(root==null){
             System.out.println("Sum not present");
         }else{
-            ArrayList<Integer> result = new ArrayList<>();
+            List<Integer> result = new ArrayList<>();
             System.out.println("The Sum : " + sum + " present: " + rootToLeafSumHelper(root, sum, result));
+            for(int i : result){
+                System.out.println("Element: " + i);
+            }
+            System.out.println();
         }
     }
 
-    private Boolean rootToLeafSumHelper(Node node, int sum, ArrayList<Integer> result){
+    private Boolean rootToLeafSumHelper(Node node, int sum, List<Integer> result){
         if(node==null){
             return false;
         }
