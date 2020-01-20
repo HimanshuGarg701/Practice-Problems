@@ -8,6 +8,7 @@ public class Driver {
         x.iterativeAdd(5);
         x.iterativeAdd(20);
 
+        System.out.println("-----------Traversal using recursion----------------");
         x.print();
 
         Tree y = new Tree();
@@ -17,6 +18,7 @@ public class Driver {
 
         System.out.println("Trees are same? " + x.checkSame(x.root, y.root));
 
+        System.out.println("-------------------Printing size of tree---------------------------");
         x.size();
 
         x.height();
