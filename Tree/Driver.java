@@ -21,6 +21,7 @@ public class Driver {
         System.out.println("-------------------Printing size of tree---------------------------");
         x.size();
 
+        System.out.println("-------------------Height---------------------------");
         x.height();
 
         x.rootToLeafSum(20);
