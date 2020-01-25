@@ -157,4 +157,21 @@ public class Tree {
 
         return false;
     }
+
+    public void validBinaryTree(){
+        System.out.println("Given tree is BST: " + validBinaryTreeHelper(root, Integer.MAX_VALUE, Integer.MIN_VALUE));
+    }
+
+    private boolean validBinaryTreeHelper(Node node, int max, int min){
+        if(node==null){
+            return true;
+        }
+        if(node.data<=min || node.data>=max){
+            return false;
+        }
+
+        return validBinaryTreeHelper(node.left, node.data, min) &&
+                validBinaryTreeHelper(node.right, max, node.data);
+
+    }
 }
