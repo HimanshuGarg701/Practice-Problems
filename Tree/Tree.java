@@ -65,4 +65,16 @@ public class Tree {
             parent.right = newNode;
         }
     }
+
+    public Boolean checkSame(Node first, Node second){
+        if(first==null && second==null){
+            return true;
+        }
+        else if(first==null || second==null){
+            return false;
+        }
+        else{
+            return (first.data==second.data) && (checkSame(first.left, second.left)) && checkSame(first.right,second.right);
+        }
+    }
 }
