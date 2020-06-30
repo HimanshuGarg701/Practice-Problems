@@ -33,7 +33,7 @@ public class JobScheduling {
         for(int i=1; i<intervals.length; i++){
             for(int j=0; j<i; j++){
                 if(intervals[i][0] >= intervals[j][1]){
-                    
+
                     result[i] = result[j] + prices[i];
                 }
             }
