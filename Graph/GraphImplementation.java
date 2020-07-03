@@ -22,4 +22,33 @@ public class GraphImplementation<T> {
 
         map.get(begin).add(end);
     }
+
+    public boolean hasEdge(T begin, T end){
+        if(map.containsKey(begin)){
+            if(map.get(begin).contains(end)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasVertex(T vertex){
+        if(map.containsKey(vertex))
+            return true;
+        return false;
+    }
+
+    public String printGraph(){
+        StringBuilder print = new StringBuilder();
+
+        for(T key : map.keySet()){
+            print.append(key + "--> ");
+            for(T value : map.get(key)){
+                print.append(value +"    ");
+            }
+            print.append("\n");
+        }
+
+        return print.toString();
+    }
 }
