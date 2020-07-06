@@ -15,10 +15,10 @@ public class BinarySearch {
         while(start<=end){
             mid = start + (end - start)/2;
             if(num < array[mid]){
-                start = mid+1;
+                end = mid-1;
             }
             else if(num > array[mid]){
-                end = mid-1;
+                start = mid+1;
             }
             else{
                 System.out.println("Number found: " + num);
