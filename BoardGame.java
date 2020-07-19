@@ -1,6 +1,4 @@
 
-package leetcode.practice;
-
 /**
  *
  * @author Himanshu Garg
