@@ -1,5 +1,4 @@
-
-package leetcode.practice.TreeBinary;
+package TreeBinary;
 
 /**
  *

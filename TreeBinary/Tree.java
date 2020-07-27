@@ -1,5 +1,5 @@
+package TreeBinary;
 
-package leetcode.practice.TreeBinary;
 import java.util.*;
 /**
  *
