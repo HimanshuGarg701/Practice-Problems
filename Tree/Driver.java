@@ -16,5 +16,7 @@ public class Driver {
         y.add(20);
 
         System.out.println("Trees are same? " + x.checkSame(x.root, y.root));
+
+        x.size();
     }
 }

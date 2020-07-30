@@ -77,4 +77,23 @@ public class Tree {
             return (first.data==second.data) && (checkSame(first.left, second.left)) && checkSame(first.right,second.right);
         }
     }
+
+    public void size(){
+        if(root==null){
+            System.out.println("Size of tree is 0");
+        }
+        else{
+            System.out.println("Size of tree is : " + sizeHelper(root));
+        }
+    }
+
+    private int sizeHelper(Node node){
+        if(node==null){
+            return 0;
+        }else{
+            int left = sizeHelper(node.left);
+            int right = sizeHelper(node.right);
+            return left+right+1;
+        }
+    }
 }
