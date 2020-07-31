@@ -38,5 +38,7 @@ public class Driver {
         x.iterativePostOrder();
 
         x.iterativePreorder();
+
+        x.iterativeInOrder();
     }
 }

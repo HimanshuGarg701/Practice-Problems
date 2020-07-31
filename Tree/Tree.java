@@ -207,7 +207,7 @@ public class Tree {
                     stack.add(removed.right);
                 }
             }
-            System.out.println("\nIterative Post order");
+            System.out.println("\n-----------Iterative Post order-------------------");
             for(int i=list.size()-1; i>=0; i--){
                 System.out.print(list.get(i).data + "  ");
             }
@@ -228,6 +228,29 @@ public class Tree {
                 if(removed.left!=null){
                     stack.push(removed.left);
                 }
+            }
+        }
+    }
+
+    public void iterativeInOrder(){
+        System.out.println("\n----------Iterative InOrder-------------------");
+        if(root!=null){
+            iterativeInOrderHelper(root);
+        }
+    }
+
+    private void iterativeInOrderHelper(Node node){
+        Stack<Node> stack = new Stack<>();
+        while (true){
+            if(node!=null){
+                stack.push(node);
+                node = node.left;
+            }else{
+                if(stack.isEmpty())
+                    break;
+                node = stack.pop();
+                System.out.print(node.data + "   ");
+                node = node.right;
             }
         }
     }
