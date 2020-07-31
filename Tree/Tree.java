@@ -207,9 +207,27 @@ public class Tree {
                     stack.add(removed.right);
                 }
             }
-            System.out.println("Iterative Post order\n");
+            System.out.println("\nIterative Post order");
             for(int i=list.size()-1; i>=0; i--){
                 System.out.print(list.get(i).data + "  ");
+            }
+        }
+    }
+
+    public void iterativePreorder(){
+        System.out.println("\n-----------PREORDER---------------");
+        Stack<Node> stack = new Stack<>();
+        if(root!=null){
+            stack.push(root);
+            while(!stack.isEmpty()){
+                Node removed = stack.pop();
+                System.out.print(removed.data + "\t");
+                if(removed.right!=null){
+                    stack.push(removed.right);
+                }
+                if(removed.left!=null){
+                    stack.push(removed.left);
+                }
             }
         }
     }
