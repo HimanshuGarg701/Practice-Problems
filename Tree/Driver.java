@@ -34,5 +34,7 @@ public class Driver {
 
         System.out.println("-------------------Level order traversal---------------------------");
         x.levelOrder();
+
+        x.iterativePostOrder();
     }
 }

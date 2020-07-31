@@ -1,10 +1,7 @@
 package Tree;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Tree {
 
@@ -192,6 +189,28 @@ public class Tree {
                 queue.add(removed.left);
             if(removed.right!=null)
                 queue.add(removed.right);
+        }
+    }
+
+    public void iterativePostOrder(){
+        if(root!=null){
+            Stack<Node> stack = new Stack<>();
+            List<Node> list = new ArrayList<>();
+            stack.push(root);
+            while(!stack.isEmpty()){
+                Node removed = stack.pop();
+                list.add(removed);
+                if(removed.left!=null){
+                    stack.add(removed.left);
+                }
+                if(removed.right!=null){
+                    stack.add(removed.right);
+                }
+            }
+            System.out.println("Iterative Post order\n");
+            for(int i=list.size()-1; i>=0; i--){
+                System.out.print(list.get(i).data + "  ");
+            }
         }
     }
 }
