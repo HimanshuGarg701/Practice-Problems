@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 public class KthSmallest {
     public static void main(String[] args){
         int[] array = {9,7,15,14,19,21,23,6,3,12,27,34};
-        //Find 3rd smallest elemt
+        //Find 3rd smallest 
         findElement(3, array);
     }
 
