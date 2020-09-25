@@ -11,6 +11,9 @@ public class Driver {
         System.out.println("-----------Traversal using recursion----------------");
         x.print();
 
+        x.reverseTree();
+        x.print();
+
         Tree y = new Tree();
         y.add(15);
         y.add(5);

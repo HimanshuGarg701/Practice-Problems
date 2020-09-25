@@ -234,4 +234,23 @@ public class Tree {
             }
         }
     }
+
+    public void reverseTree(){
+        if(root!=null)
+            reverseTreeHelper(root);
+    }
+
+    public void reverseTreeHelper(Node node){
+        if(node==null){
+
+        }
+        else{
+            Node left = node.left;
+            Node right = node.right;
+            node.left = right;
+            node.right = left;
+            reverseTreeHelper(node.left);
+            reverseTreeHelper(node.right);
+        }
+    }
 }
