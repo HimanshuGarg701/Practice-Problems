@@ -1,5 +1,5 @@
+package AddLists;
 
-package leetcode.practice.AddLists;
 import java.util.*;
 /**
  *
@@ -122,5 +122,18 @@ public class List {
             slow = slow.next;
         }
         return true;
+    }
+
+    public void reverseList(){
+        NodeList current = head;
+        NodeList next = null;
+        NodeList previous = null;
+        while(current!=null){
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        head = previous;
     }
 }

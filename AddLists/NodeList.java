@@ -1,5 +1,5 @@
+package AddLists;
 
-package leetcode.practice.AddLists;
 
 /**
  *

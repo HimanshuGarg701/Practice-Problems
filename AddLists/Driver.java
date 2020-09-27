@@ -1,5 +1,4 @@
-
-package leetcode.practice.AddLists;
+package AddLists;
 
 /**
  *
@@ -17,11 +16,15 @@ public class Driver {
         list2.add(1);
         list2.add(2);
         list2.add(9);
+
+        list1.print();
+        list1.reverseList();
+        list1.print();
         
         obj.addLists(list1, list2);
-        
+
         List list3 = new List();
-        
+
         list3.add(1);
         list3.add(2);
         list3.add(3);
@@ -29,11 +32,11 @@ public class Driver {
         list3.add(3);
         list3.add(2);
         list3.add(1);
-        
+
         list3.isPlaindrome();
-        
+
         List list4 = new List();
-        
+
         list4.add(1);
         list4.add(2);
         list4.add(3);
@@ -42,7 +45,7 @@ public class Driver {
         list4.add(3);
         list4.add(2);
         list4.add(1);
-        
+
         list4.isPlaindrome();
     }
 }
