@@ -10,6 +10,8 @@ public class AllInOne {
 
         int[] arr3 = {4,5,6,7,8,1,2,3};
         System.out.println("Index of 2 in rotated array is: " + findInRotated(arr3, 2));
+
+        findSpecifiedElement(arr3, 6);
     }
 
     private static int findInRotated(int[] arr, int element){
@@ -131,5 +133,22 @@ public class AllInOne {
             }
         }
         return last;
+    }
+
+    private static void findSpecifiedElement(int[] array, int element){
+        int start = 0;
+        int end = array.length-1;
+        int mid;
+        while(start<=end){
+            mid = start + (end-start)/2;
+            if(array[mid] < element){
+                start = mid+1;
+            }else if(array[mid] > element){
+                end = mid - 1;
+            }else{
+                System.out.println("The element is present at position: " + mid);
+                break;
+            }
+        }
     }
 }
