@@ -41,6 +41,74 @@ public class Tree {
         }
     }
 
+    public boolean checkSame(Node root1, Node root2){
+        if(root==null && root2==null){
+            return true;
+        }
+        if(root1==null || root==null){
+            return false;
+        }
+
+        return root1.data==root2.data && checkSame(root1.left, root2.left) && checkSame(root1.right, root2.right);
+    }
+
+    public void size(){
+        int sizeOfTree = sizeHelper(root);
+        System.out.println("Size of tree is: " + sizeOfTree);
+    }
+
+    public int sizeHelper(Node node){
+        if(node==null){
+            return 0;
+        }else{
+            int left = sizeHelper(node.left);
+            int right = sizeHelper(node.right);
+            return left+right+1;
+        }
+    }
+
+    public void height(){
+        int heightOfTree = heightHelper(root);
+        System.out.println("Height of tree is: " + heightOfTree);
+    }
+
+    public int heightHelper(Node node){
+        if(node==null){
+            return 0;
+        }else{
+            int left = heightHelper(node.left);
+            int right = heightHelper(node.right);
+            return 1 + Math.max(left, right);
+        }
+    }
+
+    public void rootToLeafSum(int sum){
+        List<Integer> answer = new ArrayList<>();
+        sumHelper(root, sum, answer);
+    }
+
+    public boolean sumHelper(Node node, int sum, List<Integer> answer){
+        if(node==null){
+            return false;
+        }else if(node.left==null && node.right==null){
+            if(sum==node.data){
+                answer.add(node.data);
+                return true;
+            }
+            return false;
+        }
+
+        if(sumHelper(node.right, sum-node.data, answer)){
+            answer.add(node.data);
+            return true;
+        }
+        if(sumHelper(node.left, sum-node.data, answer)){
+            answer.add(node.data);
+            return true;
+        }
+        return false;
+    }
+
     public void iterativeAdd(int data){
         iterativeAddHelper(root, data);
     }
@@ -67,94 +135,6 @@ public class Tree {
         }else{
             parent.right = newNode;
         }
-    }
-
-    public Boolean checkSame(Node first, Node second){
-        if(first==null && second==null){
-            return true;
-        }
-        else if(first==null || second==null){
-            return false;
-        }
-        else{
-            return (first.data==second.data) && (checkSame(first.left, second.left)) && checkSame(first.right,second.right);
-        }
-    }
-
-    public void size(){
-        if(root==null){
-            System.out.println("Size of tree is 0");
-        }
-        else{
-            System.out.println("Size of tree is : " + sizeHelper(root));
-        }
-    }
-
-    private int sizeHelper(Node node){
-        if(node==null){
-            return 0;
-        }else{
-            int left = sizeHelper(node.left);
-            int right = sizeHelper(node.right);
-            return left+right+1;
-        }
-    }
-
-    public void height(){
-        if(root==null){
-            System.out.print("Height of Tree: 0");
-        }
-        else{
-            System.out.println("Height of Tree is: " +heightHelper(root));
-        }
-    }
-
-    private int heightHelper(Node node){
-        if(node==null){
-            return 0;
-        }else{
-            int left = heightHelper(node.left);
-            int right = heightHelper(node.right);
-            return 1 + Math.max(right, left);
-        }
-    }
-
-    public void rootToLeafSum(int sum){
-        if(root==null){
-            System.out.println("Sum not present");
-        }else{
-            List<Integer> result = new ArrayList<>();
-            System.out.println("The Sum : " + sum + " present: " + rootToLeafSumHelper(root, sum, result));
-            for(int i : result){
-                System.out.println("Element: " + i);
-            }
-            System.out.println();
-        }
-    }
-
-    private Boolean rootToLeafSumHelper(Node node, int sum, List<Integer> result){
-        if(node==null){
-            return false;
-        }
-        else if(node.left==null && node.right==null){
-            if(node.data==sum){
-                result.add(node.data);
-                return true;
-            }else{
-                return false;
-            }
-        }
-
-        if(rootToLeafSumHelper(node.left, sum-node.data, result)){
-            result.add(node.data);
-            return true;
-        }
-        if(rootToLeafSumHelper(node.right, sum-node.data, result)){
-            result.add(node.data);
-            return true;
-        }
-
-        return false;
     }
 
     public void validBinaryTree(){
