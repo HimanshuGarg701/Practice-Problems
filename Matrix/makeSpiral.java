@@ -1,5 +1,5 @@
+package Matrix;
 
-package leetcode.practice.Matrix;
 import java.util.*;
 /**
  *
