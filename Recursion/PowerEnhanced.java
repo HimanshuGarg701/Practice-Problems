@@ -9,7 +9,6 @@ public class PowerEnhanced {
         if(p==0){
             return 1;
         }else{
-           
             int subResult = powerEnhanced(n, p/2);
             int result = subResult * subResult;
             if(p%2!=0){
