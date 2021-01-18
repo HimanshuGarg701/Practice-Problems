@@ -27,6 +27,4 @@ public class RecursiveKnapSack {
         }
         System.out.println("Maximum profit is: " + matrix[matrix.length-1][matrix[0].length-1]);
     }
-
-
 }
