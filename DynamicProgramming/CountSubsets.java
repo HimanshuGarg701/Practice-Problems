@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CountSubsets {
     public static void main(String[] args){
-        int[] nums = {1,2,3,6,4};
+        int[] nums = {6,4};
         int element = 6;
         int[][] matrix = new int[nums.length+1][element+1];
 

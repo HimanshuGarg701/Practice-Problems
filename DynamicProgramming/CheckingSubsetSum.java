@@ -37,3 +37,11 @@ public class CheckingSubsetSum {
         return matrix[matrix.length-1][matrix[0].length-1];
     }
 }
+
+//  0 1 2 3 4 5 6
+//0 T F F F F F F
+//1 T T F F F F F
+//2 T T T T F F F
+//3 T T T T T T T
+//4 T T T T T T T
+

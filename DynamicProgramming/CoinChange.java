@@ -36,3 +36,9 @@ public class CoinChange {
         return matrix[matrix.length-1][matrix[0].length-1];
     }
 }
+
+//  0 1 2 3 4 5
+//0 0 I I I I I
+//1 0 1 2 3 4 5
+//2 0 1 1 2 2 3
+//3 0 1 1 1 2 2
